@@ -205,3 +205,137 @@
 //{
 //	return 0;
 //}
+
+//#include<iostream>
+//#include<assert.h>
+//using namespace std;
+//
+////int main()
+////{
+////	int a = 0;
+////	// 引用：b和c是a的别名
+////	int& b = a;
+////	int& c = a;
+////
+////	// 也可以给别名b取别名，d相当于还是a的别名
+////	int& d = b;
+////	++d;
+////
+////	// 这里取地址我们看到是一样的
+////	cout << &a << endl;
+////	cout << &b << endl;
+////	cout << &c << endl;
+////	cout << &d << endl;
+////	return 0;
+////}
+//
+//void Swap(int& rx, int& ry)
+//{
+//	int tmp = rx;
+//	rx = ry;
+//	ry = tmp;
+//}
+//
+//void Swap(int* px, int* py)
+//{}
+//
+//typedef int STDataType;
+//typedef struct Stack
+//{
+//	STDataType* a;
+//	int top;
+//	int capacity;
+//}ST;
+//
+//void STInit(ST& rs, int n = 4)
+//{
+//	rs.a = (STDataType*)malloc(n * sizeof(STDataType));
+//	rs.top = 0;
+//	rs.capacity = n;
+//}
+//
+//// 栈顶
+//void STPush(ST& rs, STDataType x)
+//{
+//	//assert(ps);
+//
+//	// 满了， 扩容
+//	if (rs.top == rs.capacity)
+//	{
+//		printf("扩容\n");
+//		int newcapacity = rs.capacity == 0 ? 4 : rs.capacity * 2;
+//		STDataType* tmp = (STDataType*)realloc(rs.a, newcapacity *
+//			sizeof(STDataType));
+//		if (tmp == NULL)
+//		{
+//			perror("realloc fail");
+//			return;
+//		}
+//		rs.a = tmp;
+//		rs.capacity = newcapacity;
+//	}
+//	rs.a[rs.top] = x;
+//	rs.top++;
+//}
+//// int STTop(ST& rs)
+//int& STTop(ST& rs)
+//{
+//	assert(rs.top > 0);
+//	return rs.a[rs.top];
+//}
+//
+////int main()
+////{
+////	int x = 0, y = 1;
+////	cout << x << " " << y << endl;
+////	//Swap(&x, &y);
+////
+////	Swap(x, y);
+////	cout << x << " " << y << endl;
+////
+////
+////	// 调用全局的
+////	ST st1;
+////	STInit(st1);
+////	STPush(st1, 1);
+////	STPush(st1, 2);
+////
+////	cout << STTop(st1) << endl;
+////
+////	return 0;
+////}
+//
+//
+//typedef struct ListNode
+//{
+//	int val;
+//	struct ListNode* next;
+//}LTNode, * PNode;
+//
+//// typedef struct ListNode* PNode;
+//
+////void ListPushBack(LTNode** phead, int x)
+//void ListPushBack(LTNode*& phead, int x)
+////void ListPushBack(PNode& phead, int x)
+//{
+//	PNode newnode = (PNode)malloc(sizeof(LTNode));
+//	newnode->val = x;
+//	newnode->next = NULL;
+//	if (phead == NULL)
+//	{
+//		phead = newnode;
+//	}
+//	else
+//	{
+//		//...
+//	}
+//}
+//
+//int main()
+//{
+//	//PNode plist = NULL;
+//	LTNode* plist = NULL;
+//	ListPushBack(plist, 1);
+//
+//	return 0;
+//}
