@@ -101,3 +101,107 @@
 //	return 0;
 //}
 
+
+//#include <iostream>
+//using namespace std;
+//
+//void printi(int i = 0)
+//{
+//	cout << i << endl;
+//}
+//
+////全缺省
+//void printnums(int i = 0, int j = 0, int k = 0)
+//{
+//	cout << i << j << k << endl;
+//}
+//
+////半缺省 不能间隔，从右往左
+//void printnums2(int i, int j = 0, int k = 0)
+//{
+//	cout << i << j << k << endl;
+//}
+//
+//int main()
+//{
+//	printi();//没有参数时，使用参数的默认值
+//	printi(20);//传参时，使用指定的实参
+//	printnums();
+//	printnums2(10);
+//	printnums2(10, 20);
+//	printnums2(10, 20, 30);
+//	return 0;
+//}
+
+//#include<iostream>
+//using namespace std;
+//
+//// 1、参数类型不同
+//int Add(int left, int right)
+//{
+//	cout << "int Add(int left, int right)" << endl;
+//	return left + right;
+//}
+//
+//double Add(double left, double right)
+//{
+//	cout << "double Add(double left, double right)" << endl;
+//	return left + right;
+//}
+//
+//void Swap(int* px, int* py)
+//{}
+//
+//void Swap(double* px, double* py)
+//{}
+//
+//// 2、参数个数不同
+//void f()
+//{
+//	cout << "f()" << endl;
+//}
+//void f(int a)
+//{
+//	cout << "f(int a)" << endl;
+//}
+//
+//// 3、参数类型顺序不同
+//void f(int a, char b)
+//{
+//	cout << "f(int a,char b)" << endl;
+//}
+//
+//void f(char b, int a)
+//{
+//	cout << "f(char b, int a)" << endl;
+//}
+//
+////下面两个函数构成重载
+////f()但是调用时，会报错，存在歧义，编译器不知道调用谁
+//namespace ns
+//{
+//	void f1()
+//	{
+//		cout << "f()" << endl;
+//	}
+//}
+//
+//
+//void f1()
+//{
+//	cout << "f()" << endl;
+//}
+//
+//void f1(int a = 10)//参数带缺省值
+//{
+//	cout << "f(int a)" << endl;
+//}
+//
+////返回值不同不能作为重载条件，因为调用时也无法区分
+//void fxx()
+//{}
+//
+//int fxx()
+//{
+//	return 0;
+//}
