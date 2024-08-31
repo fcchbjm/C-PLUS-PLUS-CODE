@@ -88,3 +88,100 @@
 //
 //	return 0;
 //}
+
+////类和对象
+//#include <iostream>
+//using namespace std;
+//
+////类成员默认私有
+//class MyClass
+//{
+//public:
+//	int i = 0;
+//	char c = 0;
+//private:
+//	int pri_i = 0;
+//	char pri_c = 0;
+//};
+//
+////struct在C++中实现为默认为公有的类，并且可以有构造函数
+//struct MyStruct
+//{
+//	MyStruct(int I = 0, char C = 0, double D = 0)
+//	{
+//		i = I;
+//		c = C;
+//		d = D;
+//	}
+//	int i = 0;
+//	char c = 0;
+//	double d = 0;
+//};
+//
+//class Date
+//{
+//public:
+//	Date(int year, int month, int day)//构造函数，初始化对象
+//	{
+//		m_year = year;
+//		mMonth = month;
+//		_day = day;
+//	}
+//
+//	int GetYear()
+//	{
+//		return m_year;
+//	}
+//
+//	int GetMonth()
+//	{
+//		return mMonth;
+//	}
+//
+//	int GetDay()
+//	{
+//		return _day;
+//	}
+//
+//	void printDate()//定义在类中的函数默认内联
+//	{
+//		cout << m_year << "/" << mMonth << "/" << _day << endl;
+//	}
+//private:
+//	//成员变量的声明，没有空间，实例化时开空间
+//	//为了区分成员变量，一般情况下在前面加上标识，一般以 _ 或 m 开头
+//	int m_year;//前面加上 m_ 
+//	int mMonth;//前面加上m并将首字母大写
+//	int _day;//前面加上 _ 
+//};
+//
+//void printDate(Date& d)
+//{
+//	cout << d.GetYear() << "/" << d.GetMonth() << "/" << d.GetDay() << endl;
+//}
+//
+//struct ListNodeC
+//{
+//	int val;
+//	struct ListNodeC* next;//兼容C语言写法
+//};
+//
+//struct ListNodeCPP
+//{
+//	int val;
+//	ListNodeCPP* next;//类名代表类型
+//};
+//
+//int main()
+//{
+//	MyClass c1;//类名可以直接声明对象
+//	c1.c;//可以直接访问公有成员
+//	c1.i;
+//	//c1.pri_i;//不能直接访问私有成员
+//	//c1.pri_c;
+//
+//	Date d1(2024, 8, 31);
+//	printDate(d1);
+//
+//	return 0;
+//}
