@@ -150,3 +150,54 @@
 //
 //	return 0;
 //}
+
+//#include <iostream>
+//using namespace std;
+//
+//class Date
+//{
+//public:
+//	//编译器默认生成无参构造函数，对内置类型的初始化没有要求，对自定义类型初始化调用其构造函数，如果没有，就报错
+//	// 如果用户显式定义，则编译器不再生成
+//	// 可以不传参的构造函数都叫默认构造
+//	//构造函数支持函数重载
+//	Date()//无参构造函数
+//	{
+//		_year = 0;
+//		_month = 0;
+//		_day = 0;
+//	}
+//
+//	Date(int year, int month, int day)//带参构造函数
+//	{
+//		_year = year;
+//		_month = month;
+//		_day = day;
+//	}
+//
+//	//Date(int year = 0, int month = 0, int day = 0)//全缺省构造函数，不能与无参构造函数同时存在，存在歧义
+//	//{
+//	//	_year = year;
+//	//	_month = month;
+//	//	_day = day;
+//	//}
+//
+//	void PrintDate()
+//	{
+//		cout << this->_year << "/" << this->_month << "/" << this->_day << endl;
+//	}
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+//
+//int main()
+//{
+//	////构造函数在对象定义时自动调用
+//	Date d1;//无参构造函数不能加上括号，为了与函数声明区分
+//	Date d2(2024, 9, 4);
+//	d1.PrintDate();
+//	d2.PrintDate();
+//	return 0;
+//}
