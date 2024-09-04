@@ -201,3 +201,63 @@
 //	d2.PrintDate();
 //	return 0;
 //}
+
+//#include<iostream>
+//using namespace std;
+//
+//typedef int STDataType;
+//class Stack
+//{
+//public:
+//	Stack(int n = 4)
+//	{
+//		_a = (STDataType*)malloc(sizeof(STDataType) * n);
+//		if (nullptr == _a)
+//		{
+//			perror("malloc申请空间失败");
+//			return;
+//		}
+//		_capacity = n;
+//		_top = 0;
+//	}
+//	// ...
+//
+//	~Stack()
+//	{
+//		free(_a);
+//		_a = nullptr;
+//		_top = _capacity = 0;
+//	}
+//private:
+//	STDataType* _a;
+//	size_t _capacity;
+//	size_t _top;
+//};
+//
+//// 两个Stack实现队列
+//class MyQueue
+//{
+//public:
+//	// 编译器默认生成MyQueue的构造函数调用了Stack的构造，完成了两个成员的初始化
+//	// 编译器默认生成MyQueue的析构函数调用了Stack的析构，释放的Stack内部的资源
+//	// 显示写析构，也会自动调用自定义类型（Stack）的析构
+//	// 后定义的先析构
+//	~MyQueue()
+//	{
+//		cout << "~MyQueue()" << endl;
+//	}
+//private:
+//	Stack pushst;
+//	Stack popst;
+//	//int size;
+//};
+//
+//int main()
+//{
+//	MyQueue mq;
+//	//Stack st1;
+//	//Stack st2;
+//
+//	return 0;
+//}
+
