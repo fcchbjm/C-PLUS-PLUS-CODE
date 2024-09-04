@@ -261,3 +261,66 @@
 //	return 0;
 //}
 
+//#include <iostream>
+//using namespace std;
+//
+//class Date
+//{
+//public:
+//	Date(int year = 1, int month = 1, int day = 1)
+//	{
+//		_year = year;
+//		_month = month;
+//		_day = day;
+//	}
+//
+//	void Print()
+//	{
+//		cout << _year << "/" << _month << "/" << _day << endl;
+//	}
+//
+//	/*int GetYear()
+//	{
+//		return _year;
+//	}*/
+//
+//	bool operator==(Date d2)
+//	{
+//		return _year == d2._year
+//			&& _month == d2._month
+//			&& _day == d2._day;
+//	}
+//
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//
+//	//int _hour;
+//};
+//
+//bool operator<(Date d1, Date d2)
+//{
+//
+//}
+//
+////bool operator==(Date d1, Date d2)
+////{
+////	return d1._year == d2._year
+////		&& d1._month == d2._month
+////		&& d1._day == d2._day;
+////}
+//
+//int main()
+//{
+//	Date x1(2024, 7, 10);
+//	Date x2(2024, 7, 11);
+//
+//	//operator==(x1, x2);
+//	//x1 == x2;
+//
+//	x1.operator==(x2);
+//	x1 == x2;
+//
+//	return 0;
+//}
