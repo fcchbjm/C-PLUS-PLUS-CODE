@@ -151,6 +151,238 @@
 //	//运行结果： A. 1 1  B. 2 2  C. 编译报错  D. 1 随机值  E. 1 2
 //}
 
+//#include <iostream>
+//using namespace std;
+//
+//class A
+//{
+//public:
+//	A()
+//	{
+//		++_scount;
+//	}
+//
+//	A(const A& t)
+//	{
+//		++_scount;
+//	}
+//
+//	~A()
+//	{
+//		--_scount;
+//	}
+//
+//	static int GetACount()
+//	{
+//		//_a++;
+//		return _scount;
+//	}
+//
+//	void func()
+//	{
+//		cout << _scount << endl;
+//		cout << GetACount() << endl;
+//	}
+//
+//private:
+//	// 类里面声明
+//	static int _scount;
+//
+//
+//	int _a = 1;
+//};
+//
+//// 类外面初始化
+//int A::_scount = 0;
+//
+//int main()
+//{
+//	//cout << A::_scount << endl;
+//	//cout << sizeof(A) << endl;
+//
+//	cout << A::GetACount() << endl;
+//	A a1, a2;
+//
+//	{
+//		A a3(a1);
+//		cout << A::GetACount() << endl;
+//	}
+//
+//	cout << A::GetACount() << endl;
+//	cout << a1.GetACount() << endl;
+//
+//	return 0;
+//}
 
+//#include <iostream>
+//using namespace std;
+//
+////前置声明，否则A的友元函数声明时，编译器不认识B
+//class B;
+//
+//class A
+//{
+//	// 友元声明
+//	friend void func(const A& aa, const B& bb);
+//private:
+//	int _a1 = 1;
+//	int _a2 = 2;
+//};
+//
+//class B
+//{
+//	// 友元声明
+//	friend void func(const A& aa, const B& bb);
+//private:
+//	int _b1 = 3;
+//	int _b2 = 4;
+//};
+//
+//void func(const A& aa, const B& bb)
+//{
+//	cout << aa._a1 << endl;
+//	cout << bb._b1 << endl;
+//}
+//
+//int main()
+//{
+//	A aa;
+//	B bb;
+//	func(aa, bb);
+//
+//	return 0;
+//}
 
+//#include <iostream>
+//using namespace std;
+//
+//class A
+//{
+//	// 友元声明
+//	friend class B;
+//private:
+//	int _a1 = 1;
+//	int _a2 = 2;
+//};
+//
+//class B
+//{
+//public:
+//	void func1(const A& aa)
+//	{
+//		cout << aa._a1 << endl;
+//		cout << _b1 << endl;
+//	}
+//
+//	void func2(const A& aa)
+//	{
+//		cout << aa._a2 << endl;
+//		cout << _b2 << endl;
+//	}
+//private:
+//	int _b1 = 3;
+//	int _b2 = 4;
+//};
+//
+//int main()
+//{
+//	return 0;
+//}
+
+//#include<iostream>
+//using namespace std;
+//
+//class A
+//{
+//private:
+//	static int _k;
+//	int _h = 1;
+//public:
+//	class B // B为A的内部类，不是A的内部成员，大小不计入A的大小中，受访问限定符和类域限定符的限制。B默认就是A的友元
+//	{
+//	public:
+//		void foo(const A& a)
+//		{
+//			cout << _k << endl; //OK
+//			cout << a._h << endl; //OK
+//		}
+//	private:
+//		int _b = 1;
+//	};
+//};
+//int A::_k = 1;
+//
+//int main()
+//{
+//	cout << sizeof(A) << endl;
+//	A::B b;
+//
+//	A aa;
+//	b.foo(aa);
+//	return 0;
+//}
+
+//#include <iostream>
+//#include <algorithm>
+//using namespace std;
+//
+//class A
+//{
+//public:
+//	A(int a = 0)
+//		:_a(a)
+//	{
+//		cout << "A(int a)" << endl;
+//	}
+//
+//	~A()
+//	{
+//		cout << "~A()" << endl;
+//	}
+//
+//private:
+//	int _a;
+//};
+//
+//class Solution {
+//public:
+//	int Sum_Solution(int n) {
+//		//...
+//		return n;
+//	}
+//};
+//
+//bool myfunction(int i, int j) { return (i > j); }
+//
+//int main()
+//{
+//	A aa1;  //有名对象
+//
+//	// 不能这么定义对象，因为编译器无法识别下面是一个函数声明，还是对象定义
+//	//A aa2();
+//
+//	// 生命周期只在当前一行
+//	A(); // 匿名对象
+//	A(1);
+//
+//	Solution st;
+//	cout << st.Sum_Solution(10) << endl;
+//
+//	// 为了更方便
+//	cout << Solution().Sum_Solution(10) << endl;
+//
+//	int a[] = { 32,71,12,45,26,80,53,33 };
+//	// < 升序
+//	sort(a, a + 8);
+//
+//	// > 降序
+//	//sort(a, a + 8, myfunction);
+//
+//	/*greater<int> gt;
+//	sort(a, a + 8, gt);*/
+//
+//	sort(a, a + 8, greater<int>());
+//
+//	return 0;
+//}
 
