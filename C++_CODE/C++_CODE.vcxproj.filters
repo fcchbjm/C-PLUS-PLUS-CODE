@@ -45,5 +45,19 @@
     <ClCompile Include="9.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="10.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="mystring.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="11.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="mystring.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
