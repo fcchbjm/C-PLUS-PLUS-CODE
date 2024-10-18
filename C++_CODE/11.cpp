@@ -402,7 +402,7 @@ void test_string8()
 // 模拟实现
 #include"mystring.h"
 
-namespace bit
+namespace myns
 {
 	void test_string1()
 	{
@@ -475,46 +475,46 @@ namespace bit
 		cout << s3.c_str() << endl;
 	}
 
-	void test_string4()
-	{
-		string s("test.cpp.zip");
-		size_t pos = s.find('.');
-		string suffix = s.substr(pos);
-		cout << suffix.c_str() << endl;
+	//void test_string4()
+	//{
+	//	string s("test.cpp.zip");
+	//	size_t pos = s.find('.');
+	//	string suffix = s.substr(pos);
+	//	cout << suffix.c_str() << endl;
 
-		string copy(s);
-		cout << copy.c_str() << endl;
+	//	string copy(s);
+	//	cout << copy.c_str() << endl;
 
-		s = suffix;
-		cout << suffix.c_str() << endl;
-		cout << s.c_str() << endl;
+	//	s = suffix;
+	//	cout << suffix.c_str() << endl;
+	//	cout << s.c_str() << endl;
 
-		s = s;
-		cout << s.c_str() << endl;
-	}
+	//	s = s;
+	//	cout << s.c_str() << endl;
+	//}
 
-	void test_string5()
-	{
-		string s1("hello world");
-		string s2("hello world");
+	//void test_string5()
+	//{
+	//	string s1("hello world");
+	//	string s2("hello world");
 
-		cout << (s1 < s2) << endl;
-		cout << (s1 == s2) << endl;
-		cout << ("hello world" < s2) << endl;
-		cout << (s1 == "hello world") << endl;
-		//cout << ("hello world" == "hello world") << endl;
+	//	cout << (s1 < s2) << endl;
+	//	cout << (s1 == s2) << endl;
+	//	cout << ("hello world" < s2) << endl;
+	//	cout << (s1 == "hello world") << endl;
+	//	//cout << ("hello world" == "hello world") << endl;
 
-		cout << s1 << s2 << endl;
+	//	cout << s1 << s2 << endl;
 
-		string s0;
-		cin >> s0;
-		cout << s0 << endl;
-	}
+	//	string s0;
+	//	cin >> s0;
+	//	cout << s0 << endl;
+	//}
 }
 
 int main()
 {
-	//bit::test_string5();
+	myns::test_string2();
 
 	// 编码 值和符号映射编码关系
 	// 文字 -- 符号

@@ -2,7 +2,7 @@
 
 namespace myns
 {
-	const static size_t npos = -1;//定义
+	const size_t string::npos = -1;//定义
 
 	void string::reserve(size_t n)
 	{
@@ -80,22 +80,44 @@ namespace myns
 		assert(pos <= _size);
 
 		size_t len = strlen(str);
+
 		if (_size + len > _capacity)
 		{
 			reserve(_size + len > 2 * _capacity ? _size + len : 2 * _capacity);
 		}
 
 		size_t end = _size + len;
-		while (end > pos)
+		while (end > pos + len + 1)
 		{
-			_str[end - len] = _str[end - 1];
+			_str[end] = _str[end - len];
 			--end;
 		}
+
+		for (size_t i = 0; i < len; i++)
+		{
+			_str[pos + i] = str[i];
+		}
+
+		_size += len;
 	}
 
 	void string::erase(size_t pos, size_t len)
 	{
+		assert(pos < _size);
 
+		if (len >= _size - pos)
+		{
+			_str[pos] = '\0';
+			_size = pos;
+		}
+		else
+		{
+			for (size_t i = pos + len; i <= _size; i++)
+			{
+				_str[i - len] = _str[i];
+			}
+			_size -= len;
+		}
 	}
 
 }
