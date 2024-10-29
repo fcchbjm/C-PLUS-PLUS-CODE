@@ -163,7 +163,6 @@ namespace myns
 			sub += _str[pos + i];
 		}
 
-
 		return sub;
 	}
 

@@ -40,12 +40,28 @@ namespace myns
 			strcpy(_str, str);
 		}
 
+		//string(const string& s)
+		//{
+		//	_str = new char[s._capacity + 1];
+		//	strcpy(_str, s._str);
+		//	_size = s._size;
+		//	_capacity = s._capacity;
+		//}
+
+		void swap(string& s)
+		{
+			std::swap(_str, s._str);
+			std::swap(_size, s._size);
+			std::swap(_capacity, s._capacity);
+		}
+
 		string(const string& s)
 		{
-			_str = new char[s._capacity + 1];
-			strcpy(_str, s._str);
-			_size = s._size;
-			_capacity = s._capacity;
+			string tmp(s._str);
+			/*std::swap(_str, tmp._str);
+			std::swap(_size, tmp._size);
+			std::swap(_capacity, tmp._capacity);*/
+			swap(tmp);
 		}
 
 		const char* c_str() const
@@ -101,23 +117,43 @@ namespace myns
 
 		string substr(size_t pos = 0, size_t len = npos);//求子串
 
-		string& operator=(const string& s)
+		//string& operator=(const string& s)
+		//{
+		//	if (this != &s)
+		//	{
+		//		delete[] _str;
+		//		_str = new char[s._capacity + 1];
+		//		strcpy(_str, s._str);
+		//		_size = s._size;
+		//		_capacity = s._capacity;
+		//	}
+		//	return *this;
+		//}
+
+		//string& operator=(const string& s)
+		//{
+		//	if (this != &s)
+		//	{
+		//		string tmp(s._str);
+		//		swap(tmp);
+		//	}
+		//	return *this;
+		//}
+
+		//s1 = s2
+		string& operator=(string tmp)//s2拷贝产生临时变量tmp
 		{
-			if (this != &s)
-			{
-				delete[] _str;
-				_str = new char[s._capacity + 1];
-				strcpy(_str, s._str);
-				_size = s._size;
-				_capacity = s._capacity;
-			}
+			swap(tmp);//tmp于s1交换，随后tmp即将销毁，s1返回
 			return *this;
 		}
 
 		~string()
 		{
-			delete[] _str;
-			_str = nullptr;
+			if (_str != nullptr)
+			{
+				delete[] _str;
+				_str = nullptr;
+			}
 			_size = _capacity = 0;
 		}
 	private:
