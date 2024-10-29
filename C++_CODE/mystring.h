@@ -81,6 +81,12 @@ namespace myns
 
 		void erase(size_t pos, size_t len = npos);//声明的时候给缺省值
 
+		size_t find(char ch, size_t pos = 0);
+
+		size_t find(const char* str, size_t pos = 0);
+
+		string substr(size_t pos = 0, size_t len);//求子串
+
 		~string()
 		{
 			delete[] _str;

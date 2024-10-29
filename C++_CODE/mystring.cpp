@@ -87,7 +87,7 @@ namespace myns
 		}
 
 		size_t end = _size + len;
-		while (end > pos + len + 1)
+		while (end > pos + len - 1)
 		{
 			_str[end] = _str[end - len];
 			--end;
@@ -118,6 +118,53 @@ namespace myns
 			}
 			_size -= len;
 		}
+	}
+
+	size_t string::find(char ch, size_t pos)
+	{
+		for (size_t i = pos; i < _size; i++)
+		{
+			if (_str[pos] == pos)
+			{
+				return i;
+			}
+		}
+		return npos;
+	}
+
+	size_t string::find(const char* str, size_t pos)
+	{
+		assert(pos < _size);
+
+		const char* ptr = strstr(_str, str);
+		if (ptr == nullptr)
+		{
+			return npos;
+		}
+		else
+		{
+			return ptr - _str;
+		}
+	}
+
+	string string::substr(size_t pos, size_t len)
+	{
+		assert(pos < _size);
+		if (len > _size - pos)
+		{
+			len = _size - pos;
+		}
+
+		string sub;
+		sub.reserve(len);
+
+		for (size_t i = 0; i < len; i++)
+		{
+			sub += _str[pos + i];
+		}
+
+
+		return sub;
 	}
 
 }

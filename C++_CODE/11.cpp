@@ -475,23 +475,23 @@ namespace myns
 		cout << s3.c_str() << endl;
 	}
 
-	//void test_string4()
-	//{
-	//	string s("test.cpp.zip");
-	//	size_t pos = s.find('.');
-	//	string suffix = s.substr(pos);
-	//	cout << suffix.c_str() << endl;
+	void test_string4()
+	{
+		string s("test.cpp.zip");
+		size_t pos = s.find('.');
+		string suffix = s.substr(pos);
+		cout << suffix.c_str() << endl;
 
-	//	string copy(s);
-	//	cout << copy.c_str() << endl;
+		string copy(s);
+		cout << copy.c_str() << endl;
 
-	//	s = suffix;
-	//	cout << suffix.c_str() << endl;
-	//	cout << s.c_str() << endl;
+		s = suffix;
+		cout << suffix.c_str() << endl;
+		cout << s.c_str() << endl;
 
-	//	s = s;
-	//	cout << s.c_str() << endl;
-	//}
+		s = s;
+		cout << s.c_str() << endl;
+	}
 
 	//void test_string5()
 	//{
@@ -514,14 +514,14 @@ namespace myns
 
 int main()
 {
-	myns::test_string2();
+	myns::test_string4();
 
 	// ±àÂë ÖµºÍ·ûºÅÓ³Éä±àÂë¹ØÏµ
 	// ÎÄ×Ö -- ·ûºÅ
 	// ÄÚ´æºÍ´ÅÅÌÖ»ÓÐ0101
 
 	//char buff[] = "apple sort";
-	char buff[4];
+	/*char buff[4];
 	buff[0] = 97;
 	buff[1] = 98;
 	buff[2] = 99;
@@ -541,7 +541,7 @@ int main()
 	cout << str << endl;
 
 	str[3]--;
-	cout << str << endl;
+	cout << str << endl;*/
 
 	return 0;
 }
