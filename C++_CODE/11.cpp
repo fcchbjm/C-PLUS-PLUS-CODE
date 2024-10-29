@@ -493,28 +493,28 @@ namespace myns
 		cout << s.c_str() << endl;
 	}
 
-	//void test_string5()
-	//{
-	//	string s1("hello world");
-	//	string s2("hello world");
+	void test_string5()
+	{
+		string s1("hello world");
+		string s2("hello world");
 
-	//	cout << (s1 < s2) << endl;
-	//	cout << (s1 == s2) << endl;
-	//	cout << ("hello world" < s2) << endl;
-	//	cout << (s1 == "hello world") << endl;
-	//	//cout << ("hello world" == "hello world") << endl;
+		cout << (s1 < s2) << endl;
+		cout << (s1 == s2) << endl;
+		cout << ("hello world" < s2) << endl;
+		cout << (s1 == "hello world") << endl;
+		//cout << ("hello world" == "hello world") << endl;
 
-	//	cout << s1 << s2 << endl;
+		cout << s1 << s2 << endl;
 
-	//	string s0;
-	//	cin >> s0;
-	//	cout << s0 << endl;
-	//}
+		string s0;
+		cin >> s0;
+		cout << s0 << endl;
+	}
 }
 
 int main()
 {
-	myns::test_string4();
+	myns::test_string5();
 
 	// ±àÂë ÖµºÍ·ûºÅÓ³Éä±àÂë¹ØÏµ
 	// ÎÄ×Ö -- ·ûºÅ

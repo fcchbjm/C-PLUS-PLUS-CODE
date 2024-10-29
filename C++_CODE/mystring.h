@@ -15,12 +15,12 @@ namespace myns
 
 		typedef char* iterator;
 
-		iterator begin()
+		iterator begin() const
 		{
 			return _str;
 		}
 
-		iterator end()
+		iterator end() const
 		{
 			return _str + _size;
 		}
@@ -40,9 +40,23 @@ namespace myns
 			strcpy(_str, str);
 		}
 
+		string(const string& s)
+		{
+			_str = new char[s._capacity + 1];
+			strcpy(_str, s._str);
+			_size = s._size;
+			_capacity = s._capacity;
+		}
+
 		const char* c_str() const
 		{
 			return _str;
+		}
+
+		void clear()
+		{
+			_str[0] = '\0';
+			_size = 0;
 		}
 
 		size_t size() const
@@ -85,7 +99,20 @@ namespace myns
 
 		size_t find(const char* str, size_t pos = 0);
 
-		string substr(size_t pos = 0, size_t len);//求子串
+		string substr(size_t pos = 0, size_t len = npos);//求子串
+
+		string& operator=(const string& s)
+		{
+			if (this != &s)
+			{
+				delete[] _str;
+				_str = new char[s._capacity + 1];
+				strcpy(_str, s._str);
+				_size = s._size;
+				_capacity = s._capacity;
+			}
+			return *this;
+		}
 
 		~string()
 		{
@@ -103,5 +130,14 @@ namespace myns
 		const static size_t npos;//声明
 	};
 
-	
+	bool operator<(const string& s1, const string& s2);
+	bool operator<=(const string& s1, const string& s2);
+	bool operator>(const string& s1, const string& s2);
+	bool operator>=(const string& s1, const string& s2);
+	bool operator==(const string& s1, const string& s2);
+	bool operator!=(const string& s1, const string& s2);
+
+	ostream& operator<<(ostream& out, const string& s);
+	istream& operator>>(istream& in, string& s);
+
 }
