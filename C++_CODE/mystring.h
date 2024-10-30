@@ -69,7 +69,7 @@ namespace myns
 			return _str;
 		}
 
-		void clear()
+		void clear()//清除所有数据
 		{
 			_str[0] = '\0';
 			_size = 0;
