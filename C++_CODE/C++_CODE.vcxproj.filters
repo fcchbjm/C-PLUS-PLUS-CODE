@@ -57,9 +57,18 @@
     <ClCompile Include="12.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="13.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="myvector.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mystring.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="myvector.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
