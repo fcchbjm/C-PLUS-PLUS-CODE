@@ -12,6 +12,97 @@ namespace myns
 		typedef T* iterator;
 		typedef const T* const_iterator;
 
+		//vector()
+		//{}
+
+		// C++11 强制生成默认构造
+		vector() = default;
+
+		vector(const vector<T>& v)
+		{
+			reserve(v.size());
+			for (auto& e : v)
+			{
+				push_back(e);
+			}
+		}
+
+		// 类模板的成员函数，还可以继续是函数模版
+		template <class InputIterator>
+		vector(InputIterator first, InputIterator last)
+		{
+			while (first != last)
+			{
+				push_back(*first);
+				++first;
+			}
+		}
+
+		vector(size_t n, const T& val = T())
+		{
+			reserve(n);
+			for (size_t i = 0; i < n; i++)
+			{
+				push_back(val);
+			}
+		}
+
+		vector(int n, const T& val = T())
+		{
+			reserve(n);
+			for (int i = 0; i < n; i++)
+			{
+				push_back(val);
+			}
+		}
+
+		void clear()
+		{
+			_finish = _start;
+		}
+
+		// v1 = v3
+		/*vector<T>& operator=(const vector<T>& v)
+		{
+			if (this != &v)
+			{
+				clear();
+
+				reserve(v.size());
+				for (auto& e : v)
+				{
+					push_back(e);
+				}
+			}
+
+			return *this;
+		}*/
+
+		void swap(vector<T>& v)
+		{
+			std::swap(_start, v._start);
+			std::swap(_finish, v._finish);
+			std::swap(_end_of_storage, v._end_of_storage);
+		}
+
+		// v1 = v3
+		//vector& operator=(vector v)
+		vector<T>& operator=(vector<T> v)
+		{
+			swap(v);
+
+			return *this;
+		}
+
+		~vector()
+		{
+			if (_start)
+			{
+				delete[] _start;
+				_start = _finish = _end_of_storage = nullptr;
+			}
+		}
+
 		iterator begin()
 		{
 			return _start;
@@ -43,6 +134,23 @@ namespace myns
 				_start = tmp;
 				_finish = _start + old_size;
 				_end_of_storage = _start + n;
+			}
+		}
+
+		void resize(size_t n, T val = T())
+		{
+			if (n < size())
+			{
+				_finish = _start + n;
+			}
+			else
+			{
+				reserve(n);
+				while (_finish < _start + n)
+				{
+					*_finish = val;
+					++_finish;
+				}
 			}
 		}
 
@@ -78,6 +186,9 @@ namespace myns
 
 		iterator insert(iterator pos, const T& x)
 		{
+			assert(pos >= _start);
+			assert(pos <= _finish);
+
 			if (_finish == _end_of_storage)
 			{
 				size_t len = pos - _start;//记录相对位置
@@ -94,6 +205,23 @@ namespace myns
 			*pos = x;
 
 			++_finish;
+
+			return pos;
+		}
+
+		iterator erase(iterator pos)
+		{
+			assert(pos >= _start);
+			assert(pos <= _finish);
+
+			iterator it = pos + 1;
+			while (it != end())
+			{
+				*(it - 1) = *it;
+				++it;
+			}
+
+			--_finish;
 
 			return pos;
 		}
