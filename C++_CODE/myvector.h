@@ -129,8 +129,13 @@ namespace myns
 			{
 				size_t old_size = size();
 				T* tmp = new T[n];
-				memcpy(tmp, _start, size() * sizeof(T));
+				//memcpy(tmp, _start, size() * sizeof(T));
+				for (size_t i = 0; i < old_size; i++)//·ÀÖ¹Ç³¿½±´£¨Ç¶Ì×µÄÇé¿ö£©
+				{
+					tmp[i] = _start[i];
+				}
 				delete[] _start;
+
 				_start = tmp;
 				_finish = _start + old_size;
 				_end_of_storage = _start + n;

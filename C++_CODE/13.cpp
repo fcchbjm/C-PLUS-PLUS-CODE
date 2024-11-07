@@ -293,6 +293,6 @@ namespace myns
 
 int main()
 {
-	myns::test_vector6();
+	myns::test_vector7();
 	return 0;
 }
