@@ -146,6 +146,7 @@
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="mylist.h" />
     <ClInclude Include="mystring.h" />
     <ClInclude Include="myvector.h" />
   </ItemGroup>

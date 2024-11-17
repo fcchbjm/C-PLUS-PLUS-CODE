@@ -74,5 +74,8 @@
     <ClInclude Include="myvector.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="mylist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

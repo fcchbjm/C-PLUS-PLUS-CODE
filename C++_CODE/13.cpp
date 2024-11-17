@@ -291,8 +291,8 @@ namespace myns
 	}
 }
 
-int main()
-{
-	myns::test_vector7();
-	return 0;
-}
+//int main()
+//{
+//	myns::test_vector7();
+//	return 0;
+//}
