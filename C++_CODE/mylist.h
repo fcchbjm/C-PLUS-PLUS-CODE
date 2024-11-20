@@ -1,4 +1,5 @@
 #pragma once
+#include <assert.h>
 
 namespace ns
 {
@@ -16,21 +17,25 @@ namespace ns
 		{}
 	};
 
-	template<class T>
+	template<class T, class Ref, class Ptr>
 	struct list_iterator
 	{
 		typedef list_node<T> Node;
-		typedef list_iterator<T> Self;
-
+		typedef list_iterator<T, Ref, Ptr> Self;
 		Node* _node;
 
 		list_iterator(Node* node)
 			:_node(node)
 		{}
 
-		T& operator*()
+		Ref operator*()
 		{
 			return _node->_data;
+		}
+
+		Ptr operator->()
+		{
+			return &_node->_data;
 		}
 
 		Self& operator++()
@@ -45,22 +50,146 @@ namespace ns
 			return *this;
 		}
 
-		bool operator!=(const Self& s)
+		Self operator++(int)
+		{
+			Self tmp(*this);
+			_node = _node->_next;
+
+			return tmp;
+		}
+
+		Self& operator--(int)
+		{
+			Self tmp(*this);
+			_node = _node->_prev;
+
+			return tmp;
+		}
+
+		bool operator!=(const Self& s) const
 		{
 			return _node != s._node;
 		}
 
-		bool operator-=(const Self& s)
+		bool operator==(const Self& s) const
 		{
 			return _node == s._node;
 		}
 	};
 
+	//template<class T>
+	//struct list_iterator
+	//{
+	//	typedef list_node<T> Node;
+	//	typedef list_iterator<T> Self;
+
+	//	Node* _node;
+
+	//	list_iterator(Node* node)
+	//		:_node(node)
+	//	{}
+
+	//	T& operator*()
+	//	{
+	//		return _node->_data;
+	//	}
+
+	//	Self& operator++()
+	//	{
+	//		_node = _node->_next;
+	//		return *this;
+	//	}
+
+	//	Self& operator--()
+	//	{
+	//		_node = _node->_prev;
+	//		return *this;
+	//	}
+
+	//	bool operator!=(const Self& s)
+	//	{
+	//		return _node != s._node;
+	//	}
+
+	//	bool operator-=(const Self& s)
+	//	{
+	//		return _node == s._node;
+	//	}
+
+	//	T* operator->()
+	//	{
+	//		return _node->_data;
+	//	}
+	//};
+
+	/*template<class T>
+	struct list_const_iterator
+	{
+		typedef list_node<T> Node;
+		typedef list_const_iterator<T> Self;
+		Node* _node;
+
+		list_const_iterator(Node* node)
+			:_node(node)
+		{}
+
+		const T& operator*()
+		{
+			return _node->_data;
+		}
+
+		const T* operator->()
+		{
+			return &_node->_data;
+		}
+
+		Self& operator++()
+		{
+			_node = _node->_next;
+			return *this;
+		}
+
+		Self& operator--()
+		{
+			_node = _node->_prev;
+			return *this;
+		}
+
+		Self operator++(int)
+		{
+			Self tmp(*this);
+			_node = _node->_next;
+
+			return tmp;
+		}
+
+		Self& operator--(int)
+		{
+			Self tmp(*this);
+			_node = _node->_prev;
+
+			return tmp;
+		}
+
+		bool operator!=(const Self& s) const
+		{
+			return _node != s._node;
+		}
+
+		bool operator==(const Self& s) const
+		{
+			return _node == s._node;
+		}
+	};*/
+
 	template <class T>
 	class list
 	{
 	public:
-		typedef list_iterator<T> iterator;
+		/*typedef list_iterator<T> iterator;*/
+
+		typedef list_iterator<T, T&, T*> iterator;
+		typedef list_iterator<T, const T&, const T*> const_iterator;
 		
 		list()
 		{
@@ -90,7 +219,7 @@ namespace ns
 			insert(begin(), x);
 		}
 
-		void insert(iterator pos, T& x)const
+		iterator insert(iterator pos,const T& x)
 		{
 			Node* cur = pos._node;
 			Node* prev = cur->_prev;
@@ -104,10 +233,14 @@ namespace ns
 			newnode->_prev = prev;
 
 			++_size;
+
+			return newnode;
 		}
 
-		void erase(iterator pos)const
+		iterator erase(iterator pos)
 		{
+			assert(pos != end());
+
 			Node* prev = pos._node->_prev;
 			Node* next = pos._node->_next;
 
@@ -117,6 +250,8 @@ namespace ns
 			delete(pos._node);
 
 			--_size;
+
+			return next;
 		}
 
 		void pop_back()
@@ -131,11 +266,22 @@ namespace ns
 
 		iterator begin()
 		{
-			//return _head->_next;
-			return iterator(_head->_next);
+			//return iterator(_head->_next);
+			return _head->_next;
 		}
 
 		iterator end()
+		{
+			return _head;
+		}
+
+		const_iterator begin()const
+		{
+			//return const_iterator(_head->_next);
+			return _head->_next;
+		}
+
+		const_iterator end()const
 		{
 			return _head;
 		}
