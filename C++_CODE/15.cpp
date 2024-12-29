@@ -1,4 +1,5 @@
 #include <iostream>
+#include <initializer_list>
 #include "mylist.h"
 
 using namespace std;
@@ -99,28 +100,34 @@ namespace ns
 		print_container(lt);
 	}
 
-	//void test_list4()
-	//{
-	//	// 直接构造
-	//	list<int> lt0({ 1,2,3,4,5,6 });
-	//	// 隐式类型转换
-	//	list<int> lt1 = { 1,2,3,4,5,6,7,8 };
-	//	const list<int>& lt3 = { 1,2,3,4,5,6,7,8 };
+	template<class T>
+	void func(initializer_list<T> it)
+	{
+		print_container(it);
+	}
 
-	//	func(lt0);
-	//	func({ 1,2,3,4,5,6 });
+	void test_list4()
+	{
+		// 直接构造
+		list<int> lt0({ 1,2,3,4,5,6 });
+		// 隐式类型转换
+		list<int> lt1 = { 1,2,3,4,5,6,7,8 };
+		const list<int>& lt3 = { 1,2,3,4,5,6,7,8 };
 
-	//	print_container(lt1);
+		func(lt0);
+		func({ 1,2,3,4,5,6 });
 
-	//	//auto il = { 10, 20, 30 };
-	///*	initializer_list<int> il = { 10, 20, 30 };
-	//	cout << typeid(il).name() << endl;
-	//	cout << sizeof(il) << endl;*/
-	//}
+		print_container(lt1);
+
+		//auto il = { 10, 20, 30 };
+	/*	initializer_list<int> il = { 10, 20, 30 };
+		cout << typeid(il).name() << endl;
+		cout << sizeof(il) << endl;*/
+	}
 }
 
-//int main()
-//{
-//	ns::test_list2();
-//	return 0;
-//}
+int main()
+{
+	ns::test_list4();
+	return 0;
+}

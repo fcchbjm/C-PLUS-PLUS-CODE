@@ -186,17 +186,72 @@ namespace ns
 	class list
 	{
 	public:
-		/*typedef list_iterator<T> iterator;*/
+		//typedef list_iterator<T> iterator;
+		//typedef list_const_iterator<T> const_iterator;
 
 		typedef list_iterator<T, T&, T*> iterator;
 		typedef list_iterator<T, const T&, const T*> const_iterator;
 		
-		list()
+		void empty_init()
 		{
 			_head = new Node;
 			_head->_prev = _head;
 			_head->_next = _head;
 			_size = 0;
+		}
+
+		list()
+		{
+			empty_init();
+		}
+
+		list(std::initializer_list<T> il)
+		{
+			empty_init();
+			for (auto& e : il)
+			{
+				push_back(e);
+			}
+		}
+
+		//list2(list1)
+		list(const list<T>& lt)
+		{
+			empty_init();
+
+			for (auto& e : lt)
+			{
+				push_back(e);
+			}
+		}
+
+		// list1 = list3
+		list<T>& operator=(list<T> lt)
+		{
+			swap(lt);
+			return *this;
+		}
+
+		~list()
+		{
+			clear();
+			delete _head;
+			_head = nullptr;
+		}
+
+		void clear()
+		{
+			auto it = begin();
+			while (it != end())
+			{
+				it = erase(it);
+			}
+		}
+
+		void swap(list<T>& lt)
+		{
+			std::swap(_head, lt._head);
+			std::swap(_size, lt._size);
 		}
 
 		void push_back(const T& x)
@@ -219,7 +274,7 @@ namespace ns
 			insert(begin(), x);
 		}
 
-		iterator insert(iterator pos,const T& x)
+		iterator insert(iterator pos, const T& x)
 		{
 			Node* cur = pos._node;
 			Node* prev = cur->_prev;

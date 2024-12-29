@@ -143,7 +143,6 @@
     <ClCompile Include="8.cpp" />
     <ClCompile Include="9.cpp" />
     <ClCompile Include="mystring.cpp" />
-    <ClCompile Include="myvector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mylist.h" />
