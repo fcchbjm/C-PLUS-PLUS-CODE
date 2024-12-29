@@ -144,7 +144,6 @@
     <ClCompile Include="9.cpp" />
     <ClCompile Include="mystring.cpp" />
     <ClCompile Include="myvector.cpp" />
-    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mylist.h" />

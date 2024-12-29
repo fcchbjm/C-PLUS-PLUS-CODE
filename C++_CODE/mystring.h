@@ -15,12 +15,24 @@ namespace myns
 
 		typedef char* iterator;
 
-		iterator begin() const
+		typedef const char* const_iterator;
+
+		const_iterator begin() const
 		{
 			return _str;
 		}
 
-		iterator end() const
+		const_iterator end() const
+		{
+			return _str + _size;
+		}
+
+		iterator begin()
+		{
+			return _str;
+		}
+
+		iterator end()
 		{
 			return _str + _size;
 		}
@@ -36,7 +48,7 @@ namespace myns
 		{
 			_size = strlen(str);
 			_capacity = _size;//capacity 不包含'\0'
-			_str = new char[strlen(str) + 1];//初始化列表只按照成员
+			_str = new char[_size + 1];//初始化列表只按照成员
 			strcpy(_str, str);
 		}
 
@@ -158,9 +170,9 @@ namespace myns
 		}
 	private:
 		//char _buffer[16];
-		char* _str;
-		size_t _size;
-		size_t _capacity;
+		char* _str = nullptr;
+		size_t _size = 0;
+		size_t _capacity = 0;
 
 		//const static size_t npos = -1;//定义，只有 const static int(整型) 才能在这里定义
 		const static size_t npos;//声明

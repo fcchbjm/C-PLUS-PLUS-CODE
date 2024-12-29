@@ -119,8 +119,8 @@ namespace ns
 	//}
 }
 
-int main()
-{
-	ns::test_list2();
-	return 0;
-}
+//int main()
+//{
+//	ns::test_list2();
+//	return 0;
+//}

@@ -514,7 +514,7 @@ namespace myns
 
 //int main()
 //{
-//	myns::test_string5();
+//	myns::test_string4();
 //
 //	// ±àÂë ÖµºÍ·ûºÅÓ³Éä±àÂë¹ØÏµ
 //	// ÎÄ×Ö -- ·ûºÅ

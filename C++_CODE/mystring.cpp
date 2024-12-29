@@ -136,7 +136,7 @@ namespace myns
 	{
 		assert(pos < _size);
 
-		const char* ptr = strstr(_str, str);
+		const char* ptr = strstr(_str + pos, str);
 		if (ptr == nullptr)
 		{
 			return npos;
