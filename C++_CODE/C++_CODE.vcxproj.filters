@@ -63,6 +63,9 @@
     <ClCompile Include="15.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="16.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mystring.h">
@@ -72,6 +75,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="mylist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mystack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="myqueue.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

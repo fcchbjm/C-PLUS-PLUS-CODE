@@ -126,8 +126,8 @@ namespace ns
 	}
 }
 
-int main()
-{
-	ns::test_list4();
-	return 0;
-}
+//int main()
+//{
+//	ns::test_list4();
+//	return 0;
+//}

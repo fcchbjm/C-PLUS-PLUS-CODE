@@ -143,9 +143,12 @@
     <ClCompile Include="8.cpp" />
     <ClCompile Include="9.cpp" />
     <ClCompile Include="mystring.cpp" />
+    <ClCompile Include="16.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mylist.h" />
+    <ClInclude Include="myqueue.h" />
+    <ClInclude Include="mystack.h" />
     <ClInclude Include="mystring.h" />
     <ClInclude Include="myvector.h" />
   </ItemGroup>
