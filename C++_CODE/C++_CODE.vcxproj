@@ -143,10 +143,11 @@
     <ClCompile Include="8.cpp" />
     <ClCompile Include="9.cpp" />
     <ClCompile Include="mystring.cpp" />
-    <ClCompile Include="16.cpp" />
+    <ClCompile Include="16_stack_queue_prioriityqueue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mylist.h" />
+    <ClInclude Include="myPriorityQueue.h" />
     <ClInclude Include="myqueue.h" />
     <ClInclude Include="mystack.h" />
     <ClInclude Include="mystring.h" />
