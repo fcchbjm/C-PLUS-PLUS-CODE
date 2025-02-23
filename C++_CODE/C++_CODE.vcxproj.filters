@@ -66,7 +66,7 @@
     <ClCompile Include="16_stack_queue_prioriityqueue.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="模板.cpp">
+    <ClCompile Include="17_模板.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
