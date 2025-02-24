@@ -135,6 +135,8 @@
     <ClCompile Include="14.cpp" />
     <ClCompile Include="15.cpp" />
     <ClCompile Include="17_模板.cpp" />
+    <ClCompile Include="18_继承.cpp" />
+    <ClCompile Include="19_继承2.cpp" />
     <ClCompile Include="2.cpp" />
     <ClCompile Include="3.cpp" />
     <ClCompile Include="4.cpp" />
