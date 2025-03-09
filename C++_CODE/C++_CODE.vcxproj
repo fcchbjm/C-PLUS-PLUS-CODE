@@ -138,6 +138,7 @@
     <ClCompile Include="18_继承.cpp" />
     <ClCompile Include="19_继承2.cpp" />
     <ClCompile Include="2.cpp" />
+    <ClCompile Include="20_多态.cpp" />
     <ClCompile Include="3.cpp" />
     <ClCompile Include="4.cpp" />
     <ClCompile Include="5.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="16_stack_queue_prioriityqueue.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Binary Search Tree.h" />
     <ClInclude Include="mylist.h" />
     <ClInclude Include="myPriorityQueue.h" />
     <ClInclude Include="myqueue.h" />
