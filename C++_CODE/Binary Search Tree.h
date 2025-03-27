@@ -1,5 +1,9 @@
 #pragma once
 
+#include <iostream>
+
+using namespace std;
+
 template<class K>
 struct BSTNode
 {
@@ -42,8 +46,89 @@ public:
 				parent = cur;
 				cur = cur->_left;
 			}
+			else
+			{
+				return false;
+			}
+		}
+
+		cur = new Node(key);
+		if (parent->_key < key)
+		{
+			parent->_right = cur;
+		}
+		else
+		{
+			parent->_left = cur;
+		}
+		return true;
+	}
+
+	void InOrder()
+	{
+		_InOrder(_root);
+	}
+
+	bool Find(const K& key)
+	{
+		Node* cur = _root;
+
+		while (cur)
+		{
+			if (cur->_key < key)
+			{
+				parent = cur;
+				cur = cur->_right;
+			}
+			else if (cur->_key > key)
+			{
+				parent = cur;
+				cur = cur->_left;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	bool Erase(const k& key)
+	{
+		Node* parent = nullptr;
+		Node* cur = _root;
+
+		while (cur)
+		{
+			if (cur->_key < key)
+			{
+				parent = cur;
+				cur = cur->_right;
+			}
+			else if (cur->_key > key)
+			{
+				parent = cur;
+				cur = cur->_left;
+			}
+			else
+			{
+				return false;
+			}
 		}
 	}
+
+
 private:
+	void _InOrder(Node* root)
+	{
+		if (root == nullptr)
+		{
+			return;
+		}
+		_InOrder(root->_left);
+		cout << root->_key << " ";
+		_InOrder(root->_right);
+	}
+
 	Node* _root = nullptr;
 };
