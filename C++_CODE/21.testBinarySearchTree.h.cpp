@@ -2,7 +2,7 @@
 
 //int main()
 //{
-//	BSTree<int> t;
+//	nskey::BSTree<int> t;
 //	int a[] = { 8, 3, 1, 10, 1, 6, 4, 7, 14, 13};
 //	for (auto e : a)
 //	{

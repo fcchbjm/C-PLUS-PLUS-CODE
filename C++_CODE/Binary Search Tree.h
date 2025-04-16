@@ -26,6 +26,26 @@ namespace nskey
 		//typedef BSTNode<K> Node;
 		using Node = BSTNode<K>;
 	public:
+		// 强制生成构造
+		BSTree() = default;
+
+		BSTree(const BSTree& t)
+		{
+			_root = Copy(t._root);
+		}
+
+		~BSTree()
+		{
+			Destroy(_root);
+			_root = nullptr;
+		}
+
+		BSTree& operator=(BSTree tmp)
+		{
+			swap(_root, tmp._root);
+			return *this;
+		}
+
 		bool Insert(const K& key)
 		{
 			if (_root == nullptr)
@@ -182,8 +202,28 @@ namespace nskey
 			return false;
 		}
 
-
 	private:
+		void Destroy(Node* root)
+		{
+			if (root == nullptr)
+				return;
+			Destroy(root->_left);
+			Destroy(root->_right);
+			delete root;
+		}
+
+		Node* Copy(Node* root)
+		{
+			if (root == nullptr)
+				return nullptr;
+
+			Node* newRoot = new Node(root->_key);
+			newRoot->_left = Copy(root->_left);
+			newRoot->_right = Copy(root->_right);
+
+			return newRoot;
+		}
+
 		void _InOrder(Node* root)
 		{
 			if (root == nullptr)
@@ -223,6 +263,26 @@ namespace nskey_value
 		//typedef BSTNode<K> Node;
 		using Node = BSTNode<K, V>;
 	public:
+		// 强制生成构造
+		BSTree() = default;
+
+		BSTree(const BSTree& t)
+		{
+			_root = Copy(t._root);
+		}
+
+		~BSTree()
+		{
+			Destroy(_root);
+			_root = nullptr;
+		}
+
+		BSTree& operator=(BSTree tmp)
+		{
+			swap(_root, tmp._root);
+			return *this;
+		}
+
 		bool Insert(const K& key, const V& value)
 		{
 			if (_root == nullptr)
@@ -378,8 +438,28 @@ namespace nskey_value
 			return false;
 		}
 
-
 	private:
+		void Destroy(Node* root)
+		{
+			if (root == nullptr)
+				return;
+			Destroy(root->_left);
+			Destroy(root->_right);
+			delete root;
+		}
+
+		Node* Copy(Node* root)
+		{
+			if (root == nullptr)
+				return nullptr;
+
+			Node* newRoot = new Node(root->_key, root->_value);
+			newRoot->_left = Copy(root->_left);
+			newRoot->_right = Copy(root->_right);
+
+			return newRoot;
+		}
+
 		void _InOrder(Node* root)
 		{
 			if (root == nullptr)
