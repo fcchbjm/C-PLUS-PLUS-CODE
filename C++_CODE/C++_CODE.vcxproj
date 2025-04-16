@@ -139,6 +139,7 @@
     <ClCompile Include="19_继承2.cpp" />
     <ClCompile Include="2.cpp" />
     <ClCompile Include="20_多态.cpp" />
+    <ClCompile Include="21.testBinarySearchTree.h.cpp" />
     <ClCompile Include="3.cpp" />
     <ClCompile Include="4.cpp" />
     <ClCompile Include="5.cpp" />

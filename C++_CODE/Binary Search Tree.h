@@ -67,6 +67,7 @@ public:
 	void InOrder()
 	{
 		_InOrder(_root);
+		cout << endl;
 	}
 
 	bool Find(const K& key)
@@ -77,12 +78,10 @@ public:
 		{
 			if (cur->_key < key)
 			{
-				parent = cur;
 				cur = cur->_right;
 			}
 			else if (cur->_key > key)
 			{
-				parent = cur;
 				cur = cur->_left;
 			}
 			else
@@ -93,7 +92,7 @@ public:
 		return false;
 	}
 
-	bool Erase(const k& key)
+	bool Erase(const K& key)
 	{
 		Node* parent = nullptr;
 		Node* cur = _root;
@@ -112,9 +111,72 @@ public:
 			}
 			else
 			{
-				return false;
+				//删除
+
+				//左为空
+				if (cur->_left == nullptr)
+				{
+					if (cur == _root)
+					{
+						_root = _root->_right;
+					}
+					else
+					{
+						if (parent->_left == cur)
+						{
+							parent->_left = cur->_right;
+						}
+						//else if (parent->_right == cur)
+						else
+						{
+							parent->_right = cur->_right;
+						}
+					}
+					delete cur;
+				}
+				//右为空
+				else if (cur->_right == nullptr)
+				{
+					if (cur == _root)
+					{
+						_root = _root->_left;
+					}
+					else
+					{
+						if (parent->_left == cur)
+						{
+							parent->_left = cur->_left;
+						}
+						//else if (parent->_right == cur)
+						else
+						{
+							parent->_right = cur->_left;
+						}
+					}
+					delete cur;
+				}
+				//左右都不为空
+				else
+				{
+					Node* replaceParent = cur;
+					Node* replace = cur->_right;
+					while (replace->_left)//寻找右子树的最小节点（或者寻找左子树的最大节点）
+					{
+						replaceParent = replace;
+						replace = replace->_left;
+					}
+
+					cur->_key = replace->_key;
+					if (replaceParent->_left == replace)
+						replaceParent->_left = replace->_right;
+					else
+						replaceParent->_right = replace->_right;
+					delete replace;
+				}
+				return true;
 			}
 		}
+		return false;
 	}
 
 

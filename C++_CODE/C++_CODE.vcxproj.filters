@@ -78,6 +78,9 @@
     <ClCompile Include="20_多态.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="21.testBinarySearchTree.h.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mystring.h">
