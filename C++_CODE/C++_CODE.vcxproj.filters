@@ -78,7 +78,10 @@
     <ClCompile Include="20_多态.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="21.testBinarySearchTree.h.cpp">
+    <ClCompile Include="21_testBinarySearchTree.h.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="22_testAVLTree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -102,6 +105,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Binary Search Tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AVLTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
