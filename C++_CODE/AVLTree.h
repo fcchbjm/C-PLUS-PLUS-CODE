@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include<assert.h>
 using namespace std;
 
 template<class K, class V>
@@ -63,6 +64,38 @@ public:
 			parent->_left = cur;
 		}
 		cur->_parent = parent;
+
+		//控制平衡 更新平衡因子
+		while (parent)
+		{
+			if (cur == parent->_left)//插入到左边--
+			{
+				parent->_bf--;
+			}
+			else//插入到右边++
+			{
+				parent->_bf++;
+			}
+
+			if (parent->_bf == 0)//如果平衡因子等于0，结束
+			{
+				break;
+			}
+			else if (parent->_bf == 1 || parent->_bf == -1)
+			{
+				cur = parent;
+				parent = parent->_parent;
+			}
+			else if (parent->_bf == 2 || parent->_bf == -2)
+			{
+				//旋转
+
+			}
+			else
+			{
+				assert(flase);
+			}
+		}
 
 		return true;
 	}
