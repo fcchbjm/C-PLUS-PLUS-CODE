@@ -90,6 +90,7 @@ public:
 			{
 				//Ðý×ª
 
+				break;
 			}
 			else
 			{
@@ -99,6 +100,20 @@ public:
 
 		return true;
 	}
+
+	void RotateR(Node* parent)
+	{
+		Node* subL = parent->_left;
+		Node* subLR = subL->_right;
+
+		parent->_left = subLR;
+
+		if (subLR)
+			subLR->_parent = parent;
+
+		subL->_right = parent;
+	}
+
 private:
 	Node* _root;
 };
